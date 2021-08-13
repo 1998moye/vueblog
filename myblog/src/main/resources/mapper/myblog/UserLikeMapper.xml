@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myblog.mapper.UserLikeMapper">
+    <select id="getLike" resultType="com.myblog.entity.MLike">
+        select * from m_like where userId = #{userId} and blogId = #{blogId}
+    </select>
+    <update id="updateLike" parameterType="com.myblog.entity.MLike">
+        update m_like set liked = #{liked} where userId = #{userId} and blogId = #{blogId}
+    </update>
+    <insert id="insertLike" parameterType="com.myblog.entity.MLike">
+        insert into m_like values ( #{userId}, #{blogId}, #{liked} )
+    </insert>
+</mapper>
